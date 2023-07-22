@@ -22,7 +22,6 @@ class _ContactScreenState extends State<ContactScreen> {
   void initState() {
     super.initState();
     getContactList();
-    print(DateTime.now().microsecondsSinceEpoch);
   }
 
   void getContactList() async {
@@ -31,6 +30,12 @@ class _ContactScreenState extends State<ContactScreen> {
       allContactList = contactModel.contactList ?? [];
       checkEmpty();
       sortContacts();
+    } else {
+      checkEmpty();
+      setState(() {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Something went wrong")));
+      });
     }
   }
 
