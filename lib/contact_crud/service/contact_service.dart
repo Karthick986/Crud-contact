@@ -11,7 +11,7 @@ class ContactServiceImpl extends ContactService {
   Future<ContactModel?> getContacts() async {
     try {
       final response = await http.get(Uri.parse(
-          "https://raw.githubusercontent.com/Karthick986/todo_bloc/main/todo.json"));
+          "https://raw.githubusercontent.com/Karthick986/Crud-contact/main/contacts.json"));
       return ContactModel.fromJson(jsonDecode(response.body));
     } catch (e) {
       return null;
